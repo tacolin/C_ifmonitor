@@ -120,7 +120,6 @@ static int process_msg(struct sockaddr_nl *pAddr, struct nlmsghdr *pHdr)
             break;
 
         case RTM_DELLINK:
-            // 很遺懷的是線拔掉好像不會會是 DELLINK，而是 NEWLINK 帶不同的參數
             pIfi = NLMSG_DATA(pHdr);
             if_indextoname(pIfi->ifi_index, ifname);
             dprint("RTM_DELLINK (%s)", ifname);
